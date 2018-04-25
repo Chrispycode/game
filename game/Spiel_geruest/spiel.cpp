@@ -4,8 +4,8 @@ spiel::spiel (QWidget * w):QDialog(w){
 }
 
 void spiel::keyPressEvent(QKeyEvent *event){
- if ( event->text() =="a")
-    richtung =4;
+    if (event->text() == "a")
+        richtung = 4;
  if (event->text() == "d")
     richtung = 6;
 }
@@ -30,7 +30,7 @@ void spiel::hideEvent(QHideEvent * ){
 
 schiff::schiff(QWidget * w ): QLabel(w){
    QPixmap p;
-   p.load("/Users/christopherpauli/Google Drive/Schule 2/Kreutzer/game/Spiel_geruest/schiff.gif");
+   p.load("schiff.gif");
    this->setPixmap(p);
    xpos = 300;
    ypos = 300;
