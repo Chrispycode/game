@@ -30,7 +30,7 @@ void spiel::hideEvent(QHideEvent * ){
 
 schiff::schiff(QWidget * w ): QLabel(w){
    QPixmap p;
-   p.load("schiff.gif");
+   p.load(":images/schiff.gif");
    this->setPixmap(p);
    xpos = 300;
    ypos = 300;
