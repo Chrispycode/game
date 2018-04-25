@@ -30,7 +30,7 @@ void spiel::hideEvent(QHideEvent * ){
 
 schiff::schiff(QWidget * w ): QLabel(w){
    QPixmap p;
-   p.load("/Users/christopherpauli/Google Drive/Schule 2/Kreutzer/game/Spiel_geruest/schiff.gif");
+   p.load(":images/schiff.gif");
    this->setPixmap(p);
    xpos = 300;
    ypos = 300;

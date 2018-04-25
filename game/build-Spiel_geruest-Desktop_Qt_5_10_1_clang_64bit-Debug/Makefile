@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../Spiel_geruest -I. -I../Spiel_geruest -I/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtGui.framework/Headers -I/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/macx-clang -F/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib
+INCPATH       = -I../Spiel_geruest -I. -I../Spiel_geruest -I/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtMultimedia.framework/Headers -I/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtGui.framework/Headers -I/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtNetwork.framework/Headers -I/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/macx-clang -F/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib
 QMAKE         = /Users/christopherpauli/Documents/qt/5.10.1/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -35,10 +35,10 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Spiel_geruest1.0.0
-DISTDIR = /Users/christopherpauli/Google\ Drive/Schule\ 2/Kreutzer/game/build-Spiel_geruest-Desktop_Qt_5_10_1_clang_64bit-Debug/.tmp/Spiel_geruest1.0.0
+DISTDIR = /Users/christopherpauli/Google\ Drive/Schule\ 2/Kreutzer/game/game/build-Spiel_geruest-Desktop_Qt_5_10_1_clang_64bit-Debug/.tmp/Spiel_geruest1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wl,-rpath,@executable_path/Frameworks -Wl,-rpath,/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -F/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtMultimedia -framework QtNetwork -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -50,8 +50,9 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../Spiel_geruest/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../Spiel_geruest/main.cpp qrc_game.cpp
+OBJECTS       = main.o \
+		qrc_game.o
 DIST          = /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/qdevice.pri \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/device_config.prf \
@@ -210,7 +211,7 @@ DIST          = /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/fea
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/qt_config.prf \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/spec_post.prf \
-		../.qmake.stash \
+		../Spiel_geruest/.qmake.stash \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/toolchain.prf \
@@ -414,7 +415,7 @@ Makefile: ../Spiel_geruest/Spiel_geruest.pro /Users/christopherpauli/Documents/q
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/qt_config.prf \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/spec_post.prf \
-		../.qmake.stash \
+		.qmake.stash \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/toolchain.prf \
@@ -443,8 +444,11 @@ Makefile: ../Spiel_geruest/Spiel_geruest.pro /Users/christopherpauli/Documents/q
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/yacc.prf \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/lex.prf \
 		../Spiel_geruest/Spiel_geruest.pro \
+		../Spiel_geruest/game.qrc \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
+		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtMultimedia.framework/QtMultimedia.prl \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtGui.framework/QtGui.prl \
+		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtNetwork.framework/QtNetwork.prl \
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtCore.framework/QtCore.prl
 	$(QMAKE) -o Makefile ../Spiel_geruest/Spiel_geruest.pro -spec macx-clang CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/spec_pre.prf:
@@ -605,7 +609,7 @@ Makefile: ../Spiel_geruest/Spiel_geruest.pro /Users/christopherpauli/Documents/q
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/qt_config.prf:
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/spec_post.prf:
-../.qmake.stash:
+.qmake.stash:
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/mac/sdk.prf:
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/toolchain.prf:
@@ -634,8 +638,11 @@ Makefile: ../Spiel_geruest/Spiel_geruest.pro /Users/christopherpauli/Documents/q
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/yacc.prf:
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/lex.prf:
 ../Spiel_geruest/Spiel_geruest.pro:
+../Spiel_geruest/game.qrc:
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
+/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtMultimedia.framework/QtMultimedia.prl:
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtGui.framework/QtGui.prl:
+/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtNetwork.framework/QtNetwork.prl:
 /Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtCore.framework/QtCore.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../Spiel_geruest/Spiel_geruest.pro -spec macx-clang CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
@@ -666,6 +673,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents ../Spiel_geruest/game.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/christopherpauli/Documents/qt/5.10.1/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Spiel_geruest/spiel.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../Spiel_geruest/main.cpp $(DISTDIR)/
@@ -678,6 +686,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r Spiel_geruest.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -691,8 +700,14 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_game.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_game.cpp
+qrc_game.cpp: ../Spiel_geruest/game.qrc \
+		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/bin/rcc \
+		../Spiel_geruest/images/schiff.gif
+	/Users/christopherpauli/Documents/qt/5.10.1/clang_64/bin/rcc -name game ../Spiel_geruest/game.qrc -o qrc_game.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
@@ -715,7 +730,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean 
 
 ####### Compile
 
@@ -732,6 +747,9 @@ main.o: ../Spiel_geruest/main.cpp /Users/christopherpauli/Documents/qt/5.10.1/cl
 		/Users/christopherpauli/Documents/qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../Spiel_geruest/spiel.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Spiel_geruest/main.cpp
+
+qrc_game.o: qrc_game.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_game.o qrc_game.cpp
 
 ####### Install
 

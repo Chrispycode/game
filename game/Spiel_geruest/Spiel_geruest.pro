@@ -5,8 +5,10 @@ TEMPLATE = app
 TARGET = Spiel_geruest
 DEPENDPATH += .
 INCLUDEPATH += .
-QT += widgets
+QT += widgets multimedia
 
 # Input
 HEADERS += spiel.h 
 SOURCES += main.cpp spiel.cpp
+
+RESOURCES += game.qrc
