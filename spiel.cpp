@@ -1,7 +1,7 @@
 spiel::spiel (QWidget * w):QDialog(w){
    s = new schiff(this, 300, 300);
-   schuss = new geschoss(this, 300, 300);
    s->show();
+   schuss = new geschoss(this, 300, 300);
    schuss->show();
 }
 
@@ -73,6 +73,9 @@ void schiff::bewege(int richtung){
 }
 void geschoss::bewege() {
     ypos = ypos - 1;
+    if (ypos <= 0) {
+        //zerstöre den schuss /einfach nur an eine andere stelle bewegen ausserhalb des sichtbereiches?
+    }
     this->move(xpos, ypos);
 }
 void schiff::setx(int x) {
