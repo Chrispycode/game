@@ -9,9 +9,9 @@
 
 int main(int argc, char * argv[]){
 QApplication app (argc, argv);
-spiel *s = new spiel(0);
-s->resize(600,400);
-s->show();
+spiel *QwidgetSpiel = new spiel(0);
+QwidgetSpiel->resize(600,400);
+QwidgetSpiel->show();
 return app.exec();
 }
 

@@ -1,8 +1,9 @@
 spiel::spiel (QWidget * w):QDialog(w){
    s = new schiff(this, 300, 300);
    s->show();
-   schuss = new geschoss(this, 300, 300);
-   schuss->show();
+
+   /*schuss = new geschoss(this, 300, 300);
+   schuss->show();*/
 }
 
 void spiel::keyPressEvent(QKeyEvent *event){
@@ -14,6 +15,14 @@ void spiel::keyPressEvent(QKeyEvent *event){
      richtung = 8;
     if (event->text() == "s")
         richtung = 2;
+    if (event->text() == " ") {
+        if (s->schuss != NULL)
+        {
+            s->schuss->hide();
+        }
+        s->schiessen(this);
+    }
+        
 }
  
 void spiel::showEvent(QShowEvent *){
@@ -23,7 +32,10 @@ void spiel::showEvent(QShowEvent *){
 void spiel::timerEvent(QTimerEvent * event){
    if (event->timerId() == myTimerId){
       s->bewege(richtung);
-      schuss->bewege();
+      if (s->schuss != NULL)
+      {
+          s->schuss->bewege();
+      }
    }
    else{
       QWidget::timerEvent(event);
@@ -71,12 +83,20 @@ void schiff::bewege(int richtung){
    if (ypos >360) ypos = 360;
    this->move (xpos, ypos);
 }
+void schiff::schiessen(QWidget * w) {
+    schuss = new geschoss(w, xpos+12, ypos);
+    schuss->show();
+}
 void geschoss::bewege() {
-    ypos = ypos - 1;
-    if (ypos <= 0) {
-        //zerstöre den schuss /einfach nur an eine andere stelle bewegen ausserhalb des sichtbereiches?
+    ypos = ypos - 5;
+    if (ypos < -10)
+    {
+        this->hide();
     }
-    this->move(xpos, ypos);
+    else {
+        this->move(xpos, ypos);
+    }
+    
 }
 void schiff::setx(int x) {
    xpos =x;

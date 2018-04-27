@@ -16,9 +16,11 @@ class schiff : public QLabel {
    int ypos;
    int richtung;
    public:
+      geschoss * schuss = NULL;
       void setx(int);
       void sety(int);
       void bewege(int);
+      void schiessen(QWidget * w);
       schiff(QWidget * w = 0,int x = 300, int y = 300);
 };
 
@@ -27,7 +29,6 @@ class spiel : public QDialog  {
        int richtung;
        int myTimerId;
        schiff * s;
-       geschoss * schuss;
    public: 
       spiel (QWidget * );
       void  keyPressEvent(QKeyEvent *event);
