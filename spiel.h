@@ -1,15 +1,16 @@
 #include <QLabel>
 #include <QPixmap>
-//Klassen definition für Schuss
+//Klassen definition fï¿½r Schuss
 class geschoss : public QLabel {
     private:
         int xpos;
         int ypos;
     public:
         void bewege();
-        //custom constructor für die position des schussses anhand der schiff koordinaten
+        //custom constructor fï¿½r die position des schussses anhand der schiff koordinaten
         geschoss(QWidget * w, int x, int y);
 };
+
 class schiff : public QLabel {
    private:
    int xpos;
@@ -24,17 +25,30 @@ class schiff : public QLabel {
       schiff(QWidget * w = 0,int x = 300, int y = 300);
 };
 
+class enemy : public QLabel {
+   private:
+   int xpos;
+   int ypos;
+   int richtung;
+   public:
+      geschoss * schuss = NULL;
+      void setx(int);
+      void sety(int);
+      void bewege(int);
+      void schiessen(QWidget * w);
+      enemy(QWidget * w = 0,int x = 300, int y = 300);
+};
+
 class spiel : public QDialog  {
    private:
        int richtung;
        int myTimerId;
        schiff * s;
-   public: 
+       enemy * e;
+   public:
       spiel (QWidget * );
       void  keyPressEvent(QKeyEvent *event);
       void  showEvent(QShowEvent * event);
       void  timerEvent(QTimerEvent * event);
       void  hideEvent(QHideEvent * event );
 };
-   
-   

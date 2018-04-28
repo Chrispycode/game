@@ -8,12 +8,9 @@
 #include "spiel.cpp"
 
 int main(int argc, char * argv[]){
-QApplication app (argc, argv);
-spiel *QwidgetSpiel = new spiel(0);
-QwidgetSpiel->resize(600,400);
-QwidgetSpiel->show();
-return app.exec();
+  QApplication app (argc, argv);
+  spiel *QwidgetSpiel = new spiel(0);
+  QwidgetSpiel->resize(600,400);
+  QwidgetSpiel->show();
+  return app.exec();
 }
-
-  
-
