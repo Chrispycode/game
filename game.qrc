@@ -1,7 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>images/schiff.gif</file>
-        <file>images/schuss.gif</file>
         <file>images/enemy.png</file>
+        <file>images/space.jpg</file>
+        <file>images/schuss.png</file>
     </qresource>
 </RCC>

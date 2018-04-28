@@ -12,5 +12,6 @@ int main(int argc, char * argv[]){
   spiel *QwidgetSpiel = new spiel(0);
   QwidgetSpiel->resize(600,400);
   QwidgetSpiel->show();
+  QwidgetSpiel->setStyleSheet("QWidget {background-image: url(:images/space.jpg) }");
   return app.exec();
 }

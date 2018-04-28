@@ -72,11 +72,10 @@ enemy::enemy(QWidget * w ,int x , int y): QLabel(w){
 
 geschoss::geschoss(QWidget * w, int x, int y): QLabel(w) {
     QPixmap p;
-    p.load(":images/schuss.gif");
+    p.load(":images/schuss.png");
     this->setPixmap(p);
     xpos = x;
     ypos = y;
-    this->resize(14, 20);
     this->move(xpos, ypos);
 }
 
