@@ -1,8 +1,8 @@
 spiel::spiel (QWidget * w):QDialog(w){
-  s = new schiff(this, 300, 300);
+  s = new schiff(this, 280, 350);
   s->show();
 
-  e = new enemy(this, 300, 0);
+  e = new enemy(this, 280, 0);
   e->show();
 
    /*schuss = new geschoss(this, 300, 300);
