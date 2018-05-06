@@ -33,3 +33,7 @@
 /.vs
 
 *.user
+
+game/x64/Debug/game\.tlog/
+
+*.tlog
