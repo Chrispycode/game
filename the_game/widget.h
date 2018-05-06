@@ -32,9 +32,6 @@ public:
     QToolBar *fileToolBar;
     QMap<int,Shoot*> *map;
     QMap<int,Enemy*> *enemymap;
-	QMediaPlayer * m_player;
-	QMediaPlayer * m_player1;
-	QMediaPlaylist * m_playlist;
 	QSet<int> pressedKeys;
 
 

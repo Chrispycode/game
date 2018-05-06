@@ -1,4 +1,4 @@
-QT += widgets multimedia
+QT += widgets
 
 TEMPLATE = app
 

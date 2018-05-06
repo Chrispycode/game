@@ -15,15 +15,13 @@ Widget::Widget(QWidget *parent)
     : QWidget(parent), ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    setWindowTitle("Space Escape");
+    setWindowTitle("THE...GAME");
     QPalette palette;
     palette.setBrush(this->backgroundRole(), QBrush(QImage(":images/space.jpg")));
     this->setPalette(palette);
     plane = new Plane;
     map = new QMap<int,Shoot *>;
     enemymap = new QMap<int,Enemy *>;
-	  m_player = new QMediaPlayer(this);
-	  m_player1 = new QMediaPlayer(this);
     shootCount = 0;
     enemyCount = 0;
     SCORE = 0;
@@ -263,8 +261,6 @@ void Widget::checkCollision()
         QMap< int,Enemy *>::const_iterator e = enemymap->constBegin();
         while (e != enemymap->constEnd()) {
            if ((i.value()->getRect()).intersects(e.value()->getRect())) {
-			   m_player1->setPosition(0);
-			   m_player1->play();
                 e.value()->Destroyed();
                 i.value()->Destroyed();
                 SCORE = SCORE + 1;
@@ -278,8 +274,6 @@ void Widget::checkCollision()
     QMap< int,Enemy *>::const_iterator en = enemymap->constBegin();
     while (en != enemymap->constEnd()) {
         if ((en.value()->getRect()).intersects(plane->getRect())) {
-			m_player1->setPosition(0);
-			m_player1->play();
             en.value()->Destroyed();
             qDebug() << "Crash:" << en.key() ;
             gameOver = true;
@@ -334,11 +328,6 @@ void Widget::shoot()
 
 	n = QTime::currentTime();
 	if(n>sht){
-		if(m_player->state()== QMediaPlayer::PlayingState){
-			  m_player->setPosition(0);
-		}else if(m_player->state()== QMediaPlayer::StoppedState){
-			 m_player->play();
-		}
 		int x = plane->getRect().x() + 32;
 		int y = plane->getRect().y();
 
