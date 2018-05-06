@@ -10,7 +10,6 @@
 #include <QMap>
 #include "plane.h"
 #include "shoot.h"
-
 #include "enemy.h"
 
 

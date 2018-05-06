@@ -1,5 +1,4 @@
 #include <QImage>
-#include <QDebug>
 #include <QPixmap>
 #include <QMutableMapIterator>
 #include <math.h>
@@ -35,7 +34,6 @@ Widget::Widget(QWidget *parent)
     xt = QTime::currentTime().addSecs( 2 );
     timerId = startTimer(30);
 	this->installEventFilter(this);
-    qDebug() << "Game Started:" << xt ;
 }
 
 Widget::~Widget()
@@ -141,11 +139,9 @@ void Widget::timerEvent(QTimerEvent *event)
 
     n = QTime::currentTime();
     if(xt < n){
-		qDebug() << "New enemy :" << xt << "Time n:" << n ;
 
 		int v2 = rand() % 6 + 1;
 		srand (time(NULL));
-		qDebug() << "Random:" << v2 ;
 
 		Enemy* en =new Enemy();
 
@@ -175,7 +171,6 @@ void Widget::timerEvent(QTimerEvent *event)
 		//en->resetState(x,-60);
 		enemymap->insert(enemyCount,en);
 		enemyCount++;
-		qDebug() << "New Enemy:" << enemyCount ;
 
        QString str;
        str.append(QString("%1").arg(enemyCount));
@@ -264,7 +259,6 @@ void Widget::checkCollision()
                 e.value()->Destroyed();
                 i.value()->Destroyed();
                 SCORE = SCORE + 1;
-                qDebug() << "Colision: Enemy" << e.key() << "Shoot" << i.key() ;
             }
           ++e;
         }
@@ -275,7 +269,6 @@ void Widget::checkCollision()
     while (en != enemymap->constEnd()) {
         if ((en.value()->getRect()).intersects(plane->getRect())) {
             en.value()->Destroyed();
-            qDebug() << "Crash:" << en.key() ;
             gameOver = true;
 
         }
@@ -294,7 +287,6 @@ void Widget::removeDestroyed()
     while (i.hasNext()) {
         i.next();
         if (i.value()->destroyed ){
-          qDebug() << "Remove Shoot:" << i.key() ;
             i.remove();
         }
     }
@@ -302,7 +294,6 @@ void Widget::removeDestroyed()
     while (c.hasNext()) {
         c.next();
         if (c.value()->destroyed ){
-		  qDebug() << "Remove Enemy key:" << c.key() << "value:" << c.value() << "from map on adress:" <<  &enemymap << "on pointer:" <<  enemymap ;
             c.remove();
         }
     }
@@ -354,14 +345,12 @@ bool Widget::eventFilter(QObject * obj, QEvent * event)
 
 		if( pressedKeys.contains(Qt::Key_Space) )
 		{
-			qDebug() << "" ;
 			if(!paused){
 				shoot();
 		   }
 		}
 		if( pressedKeys.contains(Qt::Key_Right) )
 		{
-			qDebug() << "" ;
 			if(!paused){
 				int c = plane->getRect().x();
 				for (int i=1; i<=10; i++)
@@ -370,7 +359,6 @@ bool Widget::eventFilter(QObject * obj, QEvent * event)
 		}
 		if( pressedKeys.contains(Qt::Key_Left) )
 		{
-			qDebug() << "" ;
 			if(!paused){
 				int c = plane->getRect().x();
 				for (int i=1; i<=10; i++)
