@@ -6,7 +6,7 @@ RESOURCES += the_game.qrc
 
 CONFIG += debug
 
-TARGET = sescape
+TARGET = the_game
 
 OBJECTS_DIR = build
 

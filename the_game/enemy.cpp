@@ -1,5 +1,4 @@
 #include "enemy.h"
-#include <QDebug>
 #include <QObject>
 #include <math.h>
 
@@ -15,11 +14,6 @@ Enemy::Enemy(QObject *parent)
     timerd = startTimer(100);
     xt = QTime::currentTime().addSecs(1);
     irot = 1;
-}
-Enemy::~Enemy()
-{
-    killTimer(timerd);
-    qDebug() << "Enemy deleted:" <<  "OK";
 }
 
 void Enemy::resetState(int x,int y)

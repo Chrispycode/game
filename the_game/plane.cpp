@@ -1,5 +1,4 @@
 #include "plane.h"
-#include <QDebug>
 
 Plane::Plane(){
 
@@ -7,11 +6,6 @@ Plane::Plane(){
     rect = image.rect();
     resetState();
   }
-Plane::~Plane(){
-
-qDebug() << "Plane deleted:" <<  "OK";
-
-}
 void Plane::moveLeft(int left){
 if (rect.left() >= 2)
 rect.moveTo(left, rect.top());

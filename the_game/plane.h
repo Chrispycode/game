@@ -8,9 +8,6 @@ class Plane
 {
 public:
     Plane();
-    ~Plane();
-
- public:
     void resetState();
     void moveLeft(int);
     void moveRight(int);

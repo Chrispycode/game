@@ -7,8 +7,6 @@
 #include <QToolBar>
 #include <QKeyEvent>
 #include <QMutableMapIterator>
-#include <QMediaPlayer>
-#include <QMediaPlaylist>
 #include <QMap>
 #include "plane.h"
 #include "shoot.h"

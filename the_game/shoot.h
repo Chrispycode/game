@@ -8,9 +8,6 @@ class Shoot
 {
 public:
     Shoot();
-    ~Shoot();
-
- public:
     void resetState(int,int);
     void moveTop(int);
     void autoMove();

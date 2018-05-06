@@ -13,10 +13,7 @@ class Enemy : public QObject
 
 public:
 
-    Enemy(QObject *parent = 0);
-    ~Enemy();
-
-public:
+   Enemy(QObject *parent = 0);
    void resetState(int,int);
    void moveTop(int);
    void autoMove();

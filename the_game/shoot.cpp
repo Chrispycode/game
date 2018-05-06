@@ -1,6 +1,4 @@
 #include "shoot.h"
-#include <QDebug>
-
 
 Shoot::Shoot()
 {
@@ -10,10 +8,6 @@ Shoot::Shoot()
   image.load(":images/shoot2.png");
   rect = image.rect();
 
-}
-Shoot::~Shoot()
-{
-   qDebug() << "Shoot deleted:" <<  "OK";
 }
 
 void Shoot::resetState(int x,int y)
