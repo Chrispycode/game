@@ -21,11 +21,8 @@ public:
     bool destroyed;
 
   private:
-    int angle;
-    int speed;
     int xdir;
     int ydir;
-    bool stuck;
     QImage image;
     QRect rect;
 

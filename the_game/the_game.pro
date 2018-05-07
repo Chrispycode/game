@@ -4,13 +4,7 @@ TEMPLATE = app
 
 RESOURCES += the_game.qrc
 
-CONFIG += debug
-
 TARGET = the_game
-
-OBJECTS_DIR = build
-
-MOC_DIR = $$OBJECTS_DIR
 
 SOURCES += main.cpp \
     widget.cpp \
