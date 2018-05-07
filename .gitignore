@@ -37,3 +37,17 @@
 game/x64/Debug/game\.tlog/
 
 *.tlog
+
+*.gslides
+
+the_game/build/
+
+the_game/debug/
+
+the_game/GeneratedFiles/Debug/
+
+the_game/GeneratedFiles/
+
+*.vcxproj
+
+*.filters
