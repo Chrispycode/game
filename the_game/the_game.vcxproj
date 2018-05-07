@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{000F571A-770D-30D4-B5A5-A849416ED931}</ProjectGuid>
-    <RootNamespace>sescape</RootNamespace>
+    <RootNamespace>THE_GAME</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -24,7 +24,7 @@
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>Application</ConfigurationType>
     <IntermediateDirectory>build\</IntermediateDirectory>
-    <PrimaryOutput>sescape</PrimaryOutput>
+    <PrimaryOutput>THE_GAME</PrimaryOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <PlatformToolset>v141</PlatformToolset>
@@ -33,7 +33,7 @@
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>Application</ConfigurationType>
     <IntermediateDirectory>build\</IntermediateDirectory>
-    <PrimaryOutput>sescape</PrimaryOutput>
+    <PrimaryOutput>THE_GAME</PrimaryOutput>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
@@ -60,7 +60,7 @@
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">sescape</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">THE_GAME</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
   </PropertyGroup>
@@ -158,7 +158,7 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
       <LinkIncremental>false</LinkIncremental>
-      <OutputFile>$(OutDir)\sescape.exe</OutputFile>
+      <OutputFile>$(OutDir)\THE_GAME.exe</OutputFile>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -234,7 +234,7 @@
     <None Include="images\en1.png" />
     <None Include="images\en2.png" />
     <None Include="images\explo.png" />
-    <None Include="images\plane3.png" />
+    <None Include="images\plane3.gif" />
     <None Include="images\shoot2.png" />
     <None Include="images\space.jpg" />
     <QtRcc Include="the_game.qrc">

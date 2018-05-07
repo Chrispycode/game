@@ -12,7 +12,6 @@
 #include "shoot.h"
 #include "enemy.h"
 
-
 namespace Ui
 {
     class Widget;

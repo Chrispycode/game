@@ -319,8 +319,8 @@ void Widget::shoot()
 
 	n = QTime::currentTime();
 	if(n>sht){
-		int x = plane->getRect().x() + 32;
-		int y = plane->getRect().y();
+        int x = plane->getRect().x() + 18;
+        int y = plane->getRect().y() - 15;
 
 		Shoot* k =new Shoot();
 		k->resetState(x,y);

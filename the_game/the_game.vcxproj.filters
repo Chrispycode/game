@@ -78,13 +78,13 @@
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    
+
     <CustomBuild Include="build\moc_predefs.h.cbt">
       <Filter>Generated Files</Filter>
     </CustomBuild>
-    
-    
-    
+
+
+
     <ClInclude Include="ui_widget.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
@@ -104,7 +104,7 @@
     <None Include="images\explo.png">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="images\plane3.png">
+    <None Include="images\plane3.gif">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="images\shoot2.png">

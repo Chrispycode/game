@@ -2,7 +2,7 @@
 
 Plane::Plane(){
 
-	image.load(":images/plane3.png");
+	image.load(":images/plane3.gif");
     rect = image.rect();
     resetState();
   }
@@ -20,7 +20,7 @@ if (rect.right() <= 580)
 
 void Plane::resetState(){
 
-rect.moveTo(200, 290);
+rect.moveTo(275, 350);
 
 }
 
@@ -35,4 +35,3 @@ QImage & Plane::getImage(){
 return image;
 
 }
-
